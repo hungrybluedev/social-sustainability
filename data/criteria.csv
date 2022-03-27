@@ -1,0 +1,15 @@
+Indicator,Name,Unit,Ideally,Rank
+C1,The average wage,US Dollar,Higher,11
+C2,The employment rate,% of the working age population,Higher,7
+C3,Income inequality,ratio,Lower,14
+C4,Labor force,Thousand persons,Higher,1
+C5,Poverty gap,Ratio,Lower,10
+C6,Poverty rate,Ratio,Lower,9
+C7,Working hours,Hours/worker,Higher,8
+C8,Women in politics,Percentage,Higher,5
+C9,Population density,Ratio,Lower,2
+C10,Adult education level,% of 25-64 year-old,Higher,6
+C11,Spending on tertiary education,% of education spending,Higher,4
+C12,International student mobility,% of students enrolled,Higher,3
+C13,Tertiary graduation rate,% of the same level,Higher,13
+C14,Social spending,% of GDP,Higher,12
