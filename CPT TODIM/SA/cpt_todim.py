@@ -37,9 +37,9 @@ original_candidates = np.array(updated_dataframe.index)
 def get_list(
     alpha=0.88,
     beta=0.88,
-    gamma=0.61,
-    delta=0.69,
-    lambda_=2.25,
+    theta=0.61,
+    mu=0.69,
+    sigma=2.25,
     weights=original_weights,
     candidates=original_candidates,
     raw_data=updated_dataframe.to_numpy(),
@@ -57,8 +57,8 @@ def get_list(
     max_weight = max(weights)
     weights /= max_weight
 
-    inv_gamma = 1 / gamma
-    inv_delta = 1 / delta
+    inv_theta = 1 / theta
+    inv_mu = 1 / mu
 
     pi = np.zeros((m, m, n))
 
@@ -66,14 +66,14 @@ def get_list(
         for k in range(m):
             for j in range(n):
                 if raw_data[i, j] >= raw_data[k, j]:
-                    w_gamma = weights[j] ** gamma
-                    pi[i, k, j] = w_gamma / (
-                        (w_gamma + (1 - weights[j]) ** gamma) ** inv_gamma
+                    w_theta = weights[j] ** theta
+                    pi[i, k, j] = w_theta / (
+                        (w_theta + (1 - weights[j]) ** theta) ** inv_theta
                     )
                 else:
-                    w_delta = weights[j] ** delta
-                    pi[i, k, j] = w_delta / (
-                        (w_delta + (1 - weights[j]) ** delta) ** inv_delta
+                    w_mu = weights[j] ** mu
+                    pi[i, k, j] = w_mu / (
+                        (w_mu + (1 - weights[j]) ** mu) ** inv_mu
                     )
 
             pi[i, k, :] /= max(pi[i, k, :])
@@ -96,7 +96,7 @@ def get_list(
                     val = pi[i, k, j] * ((x_ij - x_kj) ** alpha) / pi_sums[i, k]
                 if x_ij < x_kj:
                     val = (
-                        -lambda_ * pi_sums[i, k] * ((x_kj - x_ij) ** beta) / pi[i, k, j]
+                        -sigma * pi_sums[i, k] * ((x_kj - x_ij) ** beta) / pi[i, k, j]
                     )
                 phi[j, i, k] = val
 

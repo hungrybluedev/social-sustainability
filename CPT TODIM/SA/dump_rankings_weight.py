@@ -7,9 +7,9 @@ def main():
 
     alpha = 0.88
     beta = 0.88
-    gamma = 0.61
-    delta = 0.69
-    lambda_ = 2.25
+    theta = 0.61
+    mu = 0.69
+    sigma = 2.25
 
     print(f'{",".join(cpt_todim.candidates)}')
 
@@ -17,7 +17,7 @@ def main():
         weights = np.copy(cpt_todim.original_weights)
         np.random.shuffle(weights)
         print(
-            f'{",".join(str(rank) for rank in cpt_todim.get_list(alpha,beta,gamma, delta,lambda_, weights))}'
+            f'{",".join(str(rank) for rank in cpt_todim.get_list(alpha,beta,theta, mu,sigma, weights))}'
         )
 
 
