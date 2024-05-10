@@ -116,8 +116,8 @@ def get_list(
     return rank_according_to(ratings, candidates)
 
 
-def rank_according_to(data, candidates):
-    return (len(candidates) + 1 - rankdata(data)).astype(int)
+# def rank_according_to(data, candidates):
+#     return (len(candidates) + 1 - rankdata(data)).astype(int)
 
 
 def rank_according_to(data, candidates):
